@@ -1,0 +1,128 @@
+baseURL: "https://nx-ai.github.io/blog/"
+title: NXAI Blog
+paginate: 5
+theme: PaperMod
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: NXAI Blog
+  description: "NXAI Blog description"
+  keywords: [Blog, NXAI, PaperMod]
+  author: Me
+  # author: ["Me", "You"] # multiple authors
+  images: ["<link or path of image for opengraph, twitter-cards>"]
+  DateFormat: "January 2, 2006"
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    # Fallback favicon for browsers that ignore the light/dark <link media="..."> tags
+    # added in layouts/_partials/extend_head.html.
+    favicon: "logos/nxai-logo-black.svg"
+    favicon16x16: "<link / abs url>"
+    favicon32x32: "<link / abs url>"
+    apple_touch_icon: "<link / abs url>"
+    safari_pinned_tab: "<link / abs url>"
+
+  label:
+    text: "Blog" # Leave empty to show only the logo, or add "NXAI"
+    icon: "logos/nxai-logo-black.svg"
+    iconHeight: 35
+
+  # home-info mode
+# YAML
+  homeInfoParams:
+    Title: "Welcome to Our Engineering Blog"
+    Content: "Expert insights and technical analysis across our core domains: Robotics, Time Series, and Large Language Models (LLMs)."
+
+  # Footer copyright line (see layouts/_partials/footer.html override).
+  # Kept separate from `title` above so the footer can keep saying "NXAI" and
+  # link to the company site, even though the browser tab title is "NXAI Blog".
+  footer:
+    companyName: "NXAI"
+    companyURL: "https://nx-ai.com"
+
+  #socialIcons:
+  #  - name: x
+  #    url: "https://x.com/"
+  #  - name: stackoverflow
+  #    url: "https://stackoverflow.com"
+  #  - name: github
+  #    url: "https://github.com/"
+
+  analytics:
+    google:
+      SiteVerificationTag: "XYZabc"
+    bing:
+      SiteVerificationTag: "XYZabc"
+    yandex:
+      SiteVerificationTag: "XYZabc"
+
+  cover:
+    hidden: false # hide everywhere but not in structured data
+    hiddenInList: false # hide on list pages and home
+    hiddenInSingle: false # hide on single page
+
+  editPost:
+    URL: "https://github.com/<path_to_repo>/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+menu:
+  main:
+    # The "tags" nav link to the separate /tags/ page was removed: tags are now
+    # browsable directly on the home page via the tag filter bar (layouts/list.html).
+    # The /tags/ and /tags/<tag>/ pages themselves still exist and work if linked to
+    # directly (e.g. from RSS), just no longer need a spot in the primary nav.
+    - identifier: example
+      name: nx-ai.com
+      url: https://nx-ai.com
+      weight: 30
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+pygmentsUseClasses: true
+markup:
+  highlight:
+    noClasses: false
+    # anchorLineNos: true
+    # codeFences: true
+    # guessSyntax: true
+    # lineNos: true
+    # style: monokai

@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Hugo
+# public/ is the built site; GitHub Actions rebuilds and publishes it on every
+# push, so it shouldn't be committed here.
+public/
+resources/
+.hugo_build.lock

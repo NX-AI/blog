@@ -1,0 +1,11 @@
+{{- /* Theme-aware favicon: switches between the black and white NXAI logos based on
+       the browser/OS light-dark preference (independent of the in-page theme toggle,
+       which JS can't reach before the tab icon is requested). Falls back to the black
+       logo set as `assets.favicon` in hugo.yaml for browsers that ignore `media` on
+       favicon <link> tags. */ -}}
+<link rel="icon" type="image/svg+xml" href="{{ "logos/nxai-logo-black.svg" | absURL }}" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="{{ "logos/nxai-logo-white.svg" | absURL }}" media="(prefers-color-scheme: dark)">
+
+{{- /* PaperMod only calls this partial (extend_head.html) itself; head-end.html isn't
+       a hook the theme knows about on its own, so it has to be included explicitly. */ -}}
+{{- partial "head-end.html" . -}}

@@ -1,0 +1,19 @@
+{{ if eq .Params.Plotly true }}
+<script src="https://cdn.plot.ly/plotly-4.1.0.min.js"></script>
+<style>
+    /* Scoped to plot output only: a bare `svg { display: inherit }` would also hit
+       the header's sun/moon theme-toggle icons and other site SVGs on this page. */
+    .plotly svg {
+        display: inherit;
+    }
+
+    /* Wrapper used only when the plotly shortcode is given a fixed `width` (for
+       wide multi-facet figures that need more room than the post's content column
+       to avoid overlapping subplot titles). Scroll instead of overflowing the
+       column or squeezing back down to it. */
+    .plotly-scroll {
+        overflow-x: auto;
+        margin: 1rem 0;
+    }
+</style>
+{{- end }}

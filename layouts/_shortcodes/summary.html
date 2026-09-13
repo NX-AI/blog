@@ -1,0 +1,7 @@
+{{- $title := .Get "title" | default "Management Summary" -}}
+<div class="summary-box">
+  {{- with $title }}<div class="summary-box-title">{{ . }}</div>{{ end }}
+  <div class="summary-box-content">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

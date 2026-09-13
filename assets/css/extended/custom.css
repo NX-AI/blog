@@ -1,0 +1,105 @@
+/* 1. Remove rounded corners on the logo */
+.logo img {
+    border-radius: 0 !important;
+}
+
+/* 2. Swap to white logo ONLY when PaperMod's dark mode is active */
+/* Relative path, not absolute: this file ends up bundled into
+   assets/css/stylesheet.<hash>.css, so a leading-slash path here would resolve
+   against the domain root and silently drop any baseURL subpath (e.g. the
+   "/blog/" in https://nx-ai.github.io/blog/). A path relative to that bundled
+   stylesheet's own location works under any baseURL. */
+html[data-theme="dark"] .logo img {
+    content: url("../../logos/nxai-logo-white.svg") !important;
+}
+
+/* Target ONLY the preview images on the home/list pages */
+.post-entry .entry-cover img {
+    max-height: 150px; /* Adjust this number to make the preview smaller or taller */
+    width: 100%;
+    object-fit: cover; /* Ensures the image doesn't stretch or distort */
+}
+
+/* Ensure single post images remain large and natural */
+.post-single .entry-cover img {
+    max-height: none;
+    width: 100%;
+    height: auto;
+}
+
+/* Make blog post text block-style (justified) */
+.post-content p {
+    text-align: justify;
+    hyphens: auto; /* Highly recommended for justified text to prevent awkward large gaps between words */
+}
+
+/* Highlighted callout box (e.g. Management Summary / Take Away), used via the {{< summary >}} shortcode */
+.summary-box {
+    margin: 1.5rem 0;
+    padding: 0.8rem 1.2rem;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+html[data-theme="dark"] .summary-box {
+    background: var(--entry);
+}
+
+.summary-box-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+}
+
+.summary-box-content > :first-child {
+    margin-top: 0;
+}
+
+.summary-box-content > :last-child {
+    margin-bottom: 0;
+}
+
+/* Home page tag filter bar (see layouts/list.html) */
+.tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    margin: var(--content-gap) 0 var(--gap) 0;
+}
+
+.tag-filter-pill {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--tertiary);
+    border: none;
+    border-radius: var(--radius);
+    color: var(--content);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.1s ease, background 0.1s ease, color 0.1s ease;
+}
+
+.tag-filter-pill:hover {
+    transform: translateY(-2px);
+}
+
+.tag-filter-pill.is-active {
+    background: var(--primary);
+    color: var(--theme);
+}
+
+.tag-filter-empty {
+    color: var(--secondary);
+    margin: var(--gap) 0;
+}
+
+/* PaperMod's reset.css unconditionally sets `article { display: block }`, which
+   silently overrides the native `hidden` attribute/property the tag filter's JS
+   (layouts/list.html) relies on to show/hide post cards. Without this, "hidden"
+   cards stay fully visible: force it back off explicitly. */
+.post-entry[hidden] {
+    display: none !important;
+}
